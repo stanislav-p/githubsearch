@@ -1,0 +1,30 @@
+
+@media screen and (max-width: 767px) {
+
+  .search-form {
+    padding: 10px 30px 10px;
+  }
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .search-form {
+    padding: 20px 100px 20px;
+  }
+
+  .avatar {
+    width: 120px;
+  }
+
+  .info {
+    padding-top: 10px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .avatar {
+    width: 150px;
+  }
+}

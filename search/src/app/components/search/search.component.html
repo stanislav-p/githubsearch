@@ -1,0 +1,69 @@
+<section class="githubSearch">
+  <div class="container">
+  <div class="row">
+
+    <div class="col-xs-12">
+      <div class="search-form">
+        <h2>Search</h2>
+        <form (submit)="search()">
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="repository" name="repository">
+            <input type="submit" class="btn search-btn" value="Search">
+          </div>
+        </form>
+
+        <div class="sort">
+          <h2>Sort</h2>
+          <button (click)="sort('name')" class="btn sort-btn">Name</button>
+          <button (click)="sort('stars')" class="btn sort-btn">Stars</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6" *ngFor="let repo of repositories">
+      <div class="panel panel-default" >
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="name">{{ repo.name }}</span>
+            <a href="{{ repo.html_url }}" target="_blank"><i class="fa fa-external-link-square link" aria-hidden="true"></i></a>
+            <span class="stars"><i class="fa fa-star" aria-hidden="true"></i> {{ repo.stargazers_count }}</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-3 col-md-5 col-lg-4 hidden-xs">
+              <img *ngIf="repo.owner.avatar_url" src="{{ repo.owner.avatar_url }}" alt="avatar" class="img-circle img-thumbnail avatar">
+            </div>
+            <div class="col-sm-9 col-md-7 col-lg-8">
+              <div class="info">
+                <span class="login">Author:</span> {{ repo.owner.login }}
+              </div>
+              <div *ngIf="repo.open_issues_count" class="hidden-xs info">
+                <span class="issues">Issues:</span> {{ repo.open_issues_count }}
+              </div>
+              <div class="hidden-xs info">
+                <span class="type">Type:</span>
+                <span *ngIf="repo.private == true">Private</span>
+                <span *ngIf="repo.private == false">Public</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <nav class="pag">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" (click)="pagination(1)">1</a></li>
+          <li class="page-item"><a class="page-link" (click)="pagination(2)">2</a></li>
+          <li class="page-item"><a class="page-link" (click)="pagination(3)">3</a></li>
+          <li class="page-item"><a class="page-link" (click)="pagination(4)">4</a></li>
+          <li class="page-item"><a class="page-link" (click)="pagination(5)">5</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  </div>
+</section>

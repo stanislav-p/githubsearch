@@ -1,0 +1,89 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/media';
+
+.githubSearch {
+  padding: 20px 0;
+
+  .search-form {
+    background: $main-color;
+    @include border-radius(5px);
+    margin-bottom: 20px;
+
+    h2 {
+      color: $third-color;
+      text-align: center;
+    }
+  }
+
+  .sort {
+    text-align: center;
+
+    .sort-btn {
+      color: $main-color;
+      background: $third-color;
+      margin: 5px;
+      outline: none;
+    }
+  }
+
+  .search-btn {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    padding: 6px 60px;
+    background: transparent;
+    color: $third-color;
+    border: 1px solid $third-color;
+    @include transition(ease, 0.1s);
+    outline: none;
+
+    &:hover {
+      color: $main-color;
+      background-color: $third-color;
+    }
+  }
+
+  .panel {
+    border-color: $main-color;
+
+    .panel-heading {
+      background: linear-gradient(to right, $main-color, $second-color);
+
+      a {
+        @include transition(ease, 0.1s);
+
+        &:hover {
+          color: $third-color;
+        }
+      }
+    }
+
+    .stars {
+      float: right;
+    }
+
+    .avatar {
+      border-color: $main-color;
+    }
+
+    .name,
+    .login,
+    .issues,
+    .type {
+      font-weight: bold;
+    }
+  }
+
+  .pag {
+    display: flex;
+
+    .pagination {
+      margin: auto;
+
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+}
